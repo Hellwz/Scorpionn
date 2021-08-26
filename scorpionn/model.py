@@ -15,4 +15,5 @@ class MyModel:
         return loss, grads_rec
     
     def apply_grads(self):
-        self.optimizer.apply_step(self.net.get_params_and_grads())
+        for params, grads in self.net.get_params_and_grads():
+            self.optimizer.apply_step(params, grads)

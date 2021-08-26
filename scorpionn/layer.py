@@ -33,7 +33,7 @@ class Base_Activation(Base_Layer):
 
 class FC(Base_Layer):
     def __init__(self, num_in, num_out, 
-                 weight_init=initializer.init_zeros,
+                 weight_init=initializer.init_xavier_uniform,
                  bias_init=initializer.init_zeros):
         super().__init__('FC')
         self.inputs = None
@@ -62,8 +62,7 @@ class ReLU(Base_Activation):
         return np.maximum(x, 0.0)
 
     def der_func(self, x):
-        if x > 0.0: return 1
-        else: return 0
+        return x > 0.0
 
 class Sigmoid(Base_Activation):
     def __init__(self):

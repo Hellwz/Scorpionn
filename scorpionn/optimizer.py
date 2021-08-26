@@ -4,6 +4,8 @@ class Base_Optimizer():
         self.lr = lr
 
     def apply_step(self, params, grads):
+        if params == None and grads == None:
+            return
         grads = self.compute_step(grads)
         for key in params.keys():
             params[key] += grads[key]
