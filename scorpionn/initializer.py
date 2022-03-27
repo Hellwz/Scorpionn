@@ -11,4 +11,8 @@ def init_ones(shape):
 def init_xavier_uniform(shape):
     a = np.sqrt(6. / (shape[0] + shape[1]))
     return np.random.uniform(low=-a, high=a, size=shape).astype(np.float32)
+
+def init_xavier_normal(shape):
+    sigma = np.sqrt(2. / (shape[0] + shape[1]))
+    return np.random.normal(loc=0.0, scale=sigma, size=shape).astype(np.float32)
     

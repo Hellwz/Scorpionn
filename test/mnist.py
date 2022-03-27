@@ -21,6 +21,7 @@ batch_size = 32
 X_train, Y_train = snn.dataset.load_mnist(type='train')
 X_test, Y_test = snn.dataset.load_mnist(type='t10k')
 X_train = X_train * 1.0 / 255
+X_test = X_test * 1.0 / 255
 
 for i in range(epoch):
     print("epoch:", i, "is running")
